@@ -1,0 +1,130 @@
+/* --- 基础与背景 --- */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    font-family: 'Cinzel', serif;
+    color: #e0c38c;
+    height: 100vh;
+}
+
+.stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ui-overlay {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.ui-overlay h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px rgba(224, 195, 140, 0.5);
+    text-transform: uppercase;
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1200px;
+}
+
+.wheel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* --- 圆环卡牌 --- */
+.card {
+    position: absolute;
+    width: 110px;
+    height: 180px;
+    border-radius: 8px;
+    background: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: transform 0.2s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.3) brightness(0.8);
+}
+
+/* --- 抽出卡牌 --- */
+.draw-card {
+    position: absolute;
+    width: 200px;
+    height: 340px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(.15,.85,.35,1); 
+    z-index: 100;
+    background: #000;
+}
+
+.draw-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    /*border: 2px solid #ffecd2;*/
+    object-fit: cover;
+}
+
+.glow {
+    box-shadow: 0 0 40px rgba(255,215,150,0.9);
+}
+
+@keyframes mysticGlow {
+    from {
+        filter: brightness(1);
+        box-shadow: 0 0 40px rgba(255, 215, 150, 0.8);
+    }
+    to {
+        filter: brightness(1.2);
+        box-shadow: 0 0 60px rgba(255, 215, 150, 1), 0 0 100px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.dark-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(13, 15, 26, 0.6) 0%, rgba(0, 0, 0, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.dark-overlay.active {
+    opacity: 1;
+}

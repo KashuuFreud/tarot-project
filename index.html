@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystic Tarot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="vignette"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <video id="inputVideo" style="display:none;" autoplay></video>
+
+  <div class="ui-overlay">
+    <h1>The Oracle</h1>
+    <p>Shuffle by clenching fist · Slide left/right to rotate · Pinch to draw · Two-handed reset</p>
+  </div>
+
+  <div class="wheel-wrapper">
+    <div class="wheel" id="cardContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
